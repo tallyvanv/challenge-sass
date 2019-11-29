@@ -1,0 +1,114 @@
+@import "_var_red.scss";
+
+@mixin box-shadow ($shadow: 10px 10px 19px -4px rgba(255,255, 255, 0.75)) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+$font-stack: "Space mono", monospace;
+
+nav {
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  margin: 0px;
+  padding: 0px;
+  background-color: #000;
+  background-image: radial-gradient(#fff, rgba(255, 255, 255, 0.2) 2px, transparent 40px), radial-gradient(#fff, rgba(255, 255, 255, 0.15) 1px, transparent 30px), radial-gradient(#fff, rgba(255, 255, 255, 0.1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  background-attachment: fixed
+}
+
+h1, h2, h6 {
+  color: $second-color;
+}
+
+h1 {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0px;
+  padding:  $default-padding * 2px;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  section {
+    flex-grow: 1;
+    flex-basis: 45%;
+    border: 1px silver solid;
+    @include box-shadow;
+    padding: $default-padding * 1px;
+    margin: $default-padding * 1px;
+    clear: both;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+  #selling-points {
+    flex-grow: 2;
+    flex-basis: 100%;
+  }
+  code {
+    background: #000;
+    border: 1px solid #ddd;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    .before {
+      float: left;
+      width: 40%;
+    }
+    .after {
+      float: right;
+      width: 40%;
+    }
+  }
+}
+
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #2748B3;
+  background-color: #000;
+  width: 100%
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  background-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  background-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  background-color: orange;
+}
